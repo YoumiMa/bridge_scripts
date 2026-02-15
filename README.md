@@ -1,5 +1,7 @@
 # 環境整備（TSUBAME4.0）
 
+※ローカル環境を使用する場合、dockerによるコンテナ取得も可能である。具体的には、[Megatron-BridgeのInstallationページ](https://github.com/NVIDIA-NeMo/Megatron-Bridge/tree/main?tab=readme-ov-file#-installation)を参照されたい。
+
 NeMoのコンテナを獲得する
 
 ```bash
