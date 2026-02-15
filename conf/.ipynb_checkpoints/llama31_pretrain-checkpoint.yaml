@@ -1,0 +1,42 @@
+# Each section maps to a ConfigContainer field
+dataset:                           # GPTDatasetConfig
+  sequence_length: 8192
+  split: 970,30,0
+  
+train:                             # TrainingConfig
+  train_iters: 3600
+  global_batch_size: 512
+
+checkpoint:                        # CheckpointConfig
+  save: /gs/bs/tga-ma/ma/ckpts/llama-3.1-swallow-8B-v0.5-bridge-exp1
+  save_interval: 600
+
+model:                             # Model Provider
+  seq_length: 8192                 # Must match data.sequence_length
+  tensor_model_parallel_size: 1
+  pipeline_model_parallel_size: 2
+  context_parallel_size: 1
+  gated_linear_unit: true
+  attention_backend: flash
+  
+optimizer:                         # OptimizerConfig
+  lr: 1e-5
+  min_lr: 1e-6
+  lr_decay_style: cosine
+  weight_decay: 0.1
+  clip_grad: 1
+  bf16: true
+
+scheduler:                         # SchedulerConfig
+  lr_warmup_iters: 360
+
+logger:
+  log_interval: 10
+  log_throughput: true
+  log_progress: true
+  wandb_project: llm-cpt
+  
+
+tokenizer:
+  tokenizer_type: HuggingFaceTokenizer
+  tokenizer_model: tokyotech-llm/Llama-3.1-Swallow-8B-v0.5
