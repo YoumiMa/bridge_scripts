@@ -211,86 +211,15 @@ def _llama3_common(
     model_cfg = bridge.to_megatron_provider(load_weights=load_weights) ## add this line
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+以下のスクリプトにより学習を実行できる。
+
+```
+bash qsub_merged_run_exp1.sh
+```
+
+ただし`$PE_HOSTFILE, $NHOSTS`などの環境変数は、ローカル環境に依存する可能性がある。
+なお、マルチノード化せず、シングルノードで学習する場合、$MASTER_ADDR, $MASTER_PORTなどの環境変数を指定せず、
+torchrunで学習できると思われる。具体的には、[公式のチュートリアルページ](https://github.com/NVIDIA-NeMo/Megatron-Bridge/tree/main/tutorials/recipes/llama)に参照されたい。
 
 
 
