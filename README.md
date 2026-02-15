@@ -216,7 +216,7 @@ def _llama3_common(
 以下のスクリプトにより学習を実行できる。
 
 ```
-bash qsub_merged_run_exp1.sh
+bash merged_run_exp1.sh
 ```
 
 ただし`$PE_HOSTFILE, $NHOSTS`などの環境変数は、ローカル環境に依存する可能性がある。
